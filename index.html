@@ -13,11 +13,11 @@ Project: matchmaker-for-the-web
 <body>
 
     <h1>Matchmaker For The Web </h1>
-    <p style="background-color:rgba(137, 143, 135, 0.226);">This program is designed to determine compatibility between us. You'll respond to five questions using a scale of 1 to 5,
+    <p style="background-color:rgb(255, 2, 2);">This program is designed to determine compatibility between us. You'll respond to five questions using a scale of 1 to 5,
      where 5 indicates strong agreement, 4 for agreement, 3 for neutrality, 2 for disagreement, and 1 for strong disagreement.</p>
 
 
-    <label  > Videogames are one the greatest pieces of media</label><br>
+    <label style="color: rgb(255, 251, 0);" > Videogames are one the greatest pieces of media</label><br>
 
 <select id="Q1">
     <option value="5">Strongly agree</option>
@@ -27,7 +27,7 @@ Project: matchmaker-for-the-web
     <option value="1">Strongly disagree</option>
 </select>
 <br /><br />  
-<label  >Pizza is an italian food</label><br>
+<label style="color: rgb(217, 255, 3)" >Pizza is an italian food</label><br>
 
 <select id="Q2">
     <option value="5">Strongly agree</option>
@@ -38,7 +38,7 @@ Project: matchmaker-for-the-web
 </select>
 
 <br /><br />  
-<label  >The 90s were a better decade for basketball</label><br>
+<label style="color:rgb(217, 255, 3)"  >The 90s were a better decade for basketball</label><br>
 
 <select id="Q3">
     <option value="5">Strongly agree</option>
@@ -49,7 +49,7 @@ Project: matchmaker-for-the-web
 </select>
 <br /><br />  
 
-<label  >Marvel movies are beginning to get stale and washed up </label><br>
+<label style="color:rgb(217, 255, 3)" >Marvel movies are beginning to get stale and washed up </label><br>
 
 <select id="Q4">
     <option value="5">Strongly agree</option>
@@ -59,7 +59,7 @@ Project: matchmaker-for-the-web
     <option value="1">Strongly disagree</option>
 </select>
 <br /><br />  
-<label >The Boston Celtics will win the 2023/2024 championship </label><br>
+<label style="color: rgb(217, 255, 3)" >The Boston Celtics will win the 2023/2024 championship </label><br>
 
 <select id="Q5"> 
     <option value="5">Strongly agree</option>
@@ -73,12 +73,16 @@ Project: matchmaker-for-the-web
   <br /><br /><br />  
   <button onclick="calculateCompatibility()">Calculate Compatibility</button>
   <p id="compatibility"></p>
+
+  <p id="Message"></p>
+
   <script>
 
 console.log("starting matchmaker web...")
 
 function calculateCompatibility() {
 console.log("calculateCompatibility()")
+
 
 
 const DESIRED_RESPONSE = [
@@ -90,7 +94,7 @@ const DESIRED_RESPONSE = [
 ]
 
 
-const MAX_SCORE = 15;
+const MAX_SCORE = 25;
 
 
 let question1Response = document.getElementById('Q1').selectedOptions[0].value;
@@ -149,8 +153,26 @@ totalCompatibility = Math.round(totalCompatibility);
 console.log("tc="+totalCompatibility);
 
 
+
   
 document.getElementById("compatibility").innerHTML="Your compatibility is:" + totalCompatibility;
+
+console.log("TotalCompatibility="+totalCompatibility);
+
+if (totalCompatibility < 50) {
+  console.log("Not going to work");
+  document.getElementById("Message").innerHTML="Not going to work"
+
+} else if(totalCompatibility < 70) {
+  document.getElementById("Message").innerHTML="Friends then..."
+  console.log("Friends then...");
+} else {
+  document.getElementById("Message").innerHTML="BFF"
+  console.log("BFF");
+}
+ 
+
+
 }
   </script> 
 
@@ -161,14 +183,14 @@ body {
 }
 
 p {
-  border: 25px solid rgb(151, 31, 51);
+  border: 25px solid rgb(219, 20, 202);
   padding: 25px;
-  color: rgb(202, 192, 54);
+  color: rgb(255, 251, 0);
   font-size: 20px ;
 }
 
 body {
-  background-image: url('https://th.bing.com/th/id/R.ef41541fbc0dc03420089b7d8036131f?rik=4%2bifGqMBmGVYsg&pid=ImgRaw&r=0');
+  background-image: url('https://th.bing.com/th/id/OIP.ofpzni2QIU1UM1-q7i-NRwHaEo?w=314&h=196&c=7&r=0&o=5&pid=1.7');
 }
   </style>
 
